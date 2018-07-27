@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function Teacher(name){
+				this.name = name;
+			}
+			Teacher.prototype.sayName = function (){
+				console.log("我是:"+this.name)
+			}
+			var teacher1 = new Teacher('紫漠');
+			teacher1.sayName();
+			function student(name){
+				this.name = name;
+			}
+			student.prototype = new Teacher();
+			var student1 = new student('紫漠大仙');
+			student1.sayName();
+			
+			function Parent(name,age){
+			   this.name=name;
+			   this.age=age;
+			   this.sayHi=function(){
+			    console.log("我是:"+this.name+", 我的年龄:"+this.age);
+			   }
+			  }
+			//Child继承Parent
+			  function Child(grade){
+			   this.grade=grade;
+			   this.sayGrade=function(){
+			    console.log("儿子的年龄："+this.grade);
+			   }
+			  }
+			  Child.prototype = new Parent("小明","10");/////////// 
+			  var chi=new Child("5");
+			  chi.sayHi();
+			  chi.sayGrade();
+		</script>
+	</body>
+</html>
